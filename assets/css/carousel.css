@@ -1,0 +1,35 @@
+
+h2{
+    margin: 0;     
+    color: #666;
+    //padding-top: 90px;
+    font-size: 52px;
+    font-family: "trebuchet ms", sans-serif;    
+}
+.item{
+   // background: #fff;    
+    text-align: center;
+    height: 400px !important;
+}
+.carousel{
+    margin-top: 20px;
+}
+.bs-example{
+    height: auto;
+    width: auto;
+	margin: auto;
+}
+
+
+.item img{
+    margin: auto;
+}
+ .carousel-caption{
+  position: absolute; 
+  margin-bottom:10px; 
+}
+
+.slider-size{
+    height: 500px;
+}
+

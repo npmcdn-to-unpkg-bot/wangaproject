@@ -1,0 +1,213 @@
+{% extends "wanga/base.html"%}
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+<head>
+    <title>Wanga Inc</title>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    
+
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <link rel="stylesheet" href="{% static "css/carousel.css" %}">
+   
+    <link rel="import" href="{% static "custom/base-head.html" %}">
+
+
+</head>
+
+<body>
+ <!--   {% block Uuser%}
+
+    {% if user.is_authenticated%}
+                                    <li class="dropdown" >
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">                           Profile <span class="caret"></span> </a>
+                                        <ul class="dropdown-menu">
+                                            <li> <a href="/profile">Profile</a> </li>
+                                            <li> <a href="/logout">Sair</a> </li>
+                                            
+                                        </ul>
+                                    </li>
+                                
+                                
+                                {% else %}
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">                                                |User <span class="caret"></span> </a>
+                                        <ul class="dropdown-menu">
+                                       
+                                            
+                                            <li> <a href="/register">Register</a> </li>
+                                            <li> <a href="/login">Entrar</a> </li>
+                                       
+                                       
+                                        </ul>
+                                    </li>
+                                {% endif %}
+                                {%endblock%} -->
+
+
+    
+    
+{% block content%}
+
+<div id="incription">
+    <div class="container" style="z-index:99;">
+    <div class="row">
+    <div class="col-md-12 col-sm-12 col-lg-12">
+        <div style="width:100%; height:auto; background:red;">
+            <p> <strong>Wanga Cursos</strong> <a href=""><button class="btn btn-primary btn-lg">Incrições Abertas</button></a></p>
+        </div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  <!--
+    <div class=" navbar-custom">
+<div class="container" style="z-index:99;">
+    <div class="row">
+    <div class="col-md-4 col-sm-4 col-lg-6">
+    <nav class="nav navbar-default" style="">
+        <div class="navbar-header">
+        <ul class="nav navbar-nav navbar-left" style="margin-bottom:2rem;margin-left:2rem; display:inline-block;">
+                
+                <li style="magin-bottom:0;"><a > <h3>Wanga Cursos</h3> </a></li>
+                <li>  <a href="" class="navbar-brand" style="margin-bottom:2rem;"><button class="btn btn-primary btn-xs " >Inscrições Abertas </button></a>   </li>
+            </ul>
+
+                 
+           
+        </div>
+    </nav>
+    </div>
+    </div>
+    </div>
+</div>
+ 
+--> 
+
+<div class="container" style="width:100%;">
+    <div class="row">
+        <div class="col-xs-12" style="height:400px;">
+            <div class="bs-example">
+                <div id="myCarousel" class="carousel slide" data-interval="10000" data-ride="carousel">
+                    <!-- Carousel indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                    </ol>
+                   <!-- Wrapper for carousel items -->
+                    <div class="carousel-inner">
+                        <div class="active item">
+                            <h2>Slide 1</h2>
+                            <div class="carousel-caption">
+                              <h3> <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"> First slide label</a></h3>
+                              <div id="collapseOne" class="panel-collapse collapse ">
+                <div class="panel-body">
+                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                              </p>
+                              </div>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="item col-xs-12">
+                            <h2>Festa Hoje...!</h2>
+                            <img src="http://placehold.it/1200x315" alt="...">
+                            <div class="carousel-caption">
+                              <h3>Second slide label</h3>
+                              <h3>Second slide label</h3>
+                              <p>Aliquam sit amet gravida nibh, facilisis gravida odio.
+                              Aliquam sit amet gravida nibh, <a href="#">facilisis gravida</a> odio.</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                        <div class="slider-size" >
+                            <img  class="img-responsive" src="{% static "image/happyhour.jpg" %}" style="width:800px;  margin-top:20px;"> 
+
+                                <div class="carousel-caption" >
+                                  <h3>  Kizomba Fest  </h3>
+                                 
+                                
+                              <p>Visita o <a href="">Facebook</a> da festa.</p>
+
+                             
+
+                                 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Carousel controls -->
+                    <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a class="carousel-control right" href="#myCarousel" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                </div>
+        </div>
+
+        </div>
+    </div>
+</div>
+<br>
+<div class="container" style="margin-top:9rem;">
+    <div class="row">
+        <div class="col-xs-12" style="height:auto; ">
+            <div class="col-sm-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Programação..::</div>
+                        <div class="panel-body">
+                            <div class="list-group">
+                                <a href="" class="list-group-item">  <h3 class="panel-title">Dance in Time<time> 2015-07-14 22:30</time></h3>
+                                    <p>Folly words widow one downs few age every seven. If miss part by fact he park just shew. Discovered had get considered projection who favourable. Necessary up knowledge it tolerably. Unwilling departure education is be dashwoods or an. Use off agreeable law unwilling sir deficient curiosity instantly</p>
+                                </a>
+
+                                <a  href="" class="list-group-item">  <h3 class="panel-title">Dance in Time<time> 2015-07-14 22:30</time></h3>
+                                    <p>Folly words widow one downs few age every seven. If miss part by fact he park just shew. Discovered had get considered projection who favourable. Necessary up knowledge it tolerably. Unwilling departure education is be dashwoods or an. Use off agreeable law unwilling sir deficient curiosity instantly</p>
+                                </a>
+
+                                
+
+                            </div>
+                        </div>
+                   
+                </div>
+                
+            </div>
+            
+            <div class="col-sm-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Novidades</div>
+                        <div class="panel-body">
+                               
+                            <div class="list-group">
+                                <a href="" class="list-group-item">  <h3 class="panel-title">Dance in Time<time> 2015-07-14 22:30</time></h3>
+                                    <p>Folly words widow one downs few age every seven. If miss part by fact he park just shew. Discovered had get considered projection who favourable. Necessary up knowledge it tolerably. Unwilling departure education is be dashwoods or an. Use off agreeable law unwilling sir deficient curiosity instantly</p>
+                                </a>
+
+                                <a  href="" class="list-group-item">  <h3 class="panel-title">Dance in Time<time> 2015-07-14 22:30</time></h3>
+                                    <p>Folly words widow one downs few age every seven. If miss part by fact he park just shew. Discovered had get considered projection who favourable. Necessary up knowledge it tolerably. Unwilling departure education is be dashwoods or an. Use off agreeable law unwilling sir deficient curiosity instantly</p>
+                                </a>
+
+                                
+
+                            </div>
+                               
+                        </div>
+                    </div>
+                
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+</body>
+</html>

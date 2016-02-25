@@ -1,0 +1,102 @@
+{% extends "wanga/base.html" %}
+
+{% load staticfiles %}
+
+ <!--   
+<script >
+    $(document).ready(function() {
+    $(".fancybox-button").fancybox({
+        prevEffect      : 'none',
+        nextEffect      : 'none',
+        closeBtn        : false,
+        helpers     : {
+            title   : { type : 'inside' },
+            buttons : {}
+        }
+    });
+});
+
+</script> -->
+
+{% block content%}
+
+<div class="container">
+    <div class="row">
+    
+        <div class="col-lg-3 col-md-6 col-sm-6 thumb">
+            <div class="thumbnail">
+               
+                <img  src= "{{MEDIA_URL}}/{{cov}}"  alt="..."> 
+                    <div class="caption">
+                        <h3>{{album.titulo}}</h3>
+                        <p>{{album.descricao}}</p>
+
+                        <form action="/album/" method="get">
+                        {% csrf_token %}
+                        <input value="{{gal.gale}}" type="text" name="q" class="hidden">
+                        <p><button class="btn btn-primary" value="submit" type="submit" role="button">Ver Album</button></p>
+                        </form>
+                    </div>
+
+            </div>
+        </div>
+        {%endfor%}
+        {%endfor%}
+        {%else%}
+            <p>No album yet</p>
+        {%endif%}
+    
+<!--
+        <div class="col-lg-3 col-md-6 col-xs-6 thumb">
+            <div class="thumbnail">
+                <a class="fancybox" href= "{{MEDIA_URL}}galerias/festa_adex/golden.jpg"   title="cold forest (picturesbywalther)">
+                <img  src= "{{MEDIA_URL}}galerias/festa_adex/golden.jpg"  alt="..."> </a>
+                    <div class="caption">
+                        <h3>Thumbnail label</h3>
+                        <p>...</p>
+                        <p>...</p>
+                        <p>...</p>
+                        <p><a href="/album" class="btn btn-primary" role="button">Ver Album</a> </p>
+                    </div>
+
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-xs-6 thumb">
+            <div class="thumbnail">
+                <a class="fancybox" href= "{{MEDIA_URL}}galerias/festa_adex/golden.jpg"   title="cold forest (picturesbywalther)">
+                <img  src= "{{MEDIA_URL}}galerias/festa_adex/golden.jpg"  alt="..."> </a>
+                    <div class="caption">
+                        <h3>Thumbnail label</h3>
+                        <p>...</p>
+                        <p>...</p>
+                        <p>...</p>
+                        <p><a href="/album" class="btn btn-primary" role="button">Ver Album</a> </p>
+                    </div>
+                    <div class="hidden">
+                        <a class="fancybox" href="http://fancyapps.com/fancybox/demo/2_b.jpg"><img src="http://fancyapps.com/fancybox/demo/2_s.jpg" alt=""/></a>
+
+                        <a class="fancybox" href="http://fancyapps.com/fancybox/demo/3_b.jpg"><img src="http://fancyapps.com/fancybox/demo/3_s.jpg" alt=""/></a>
+                    </div>
+
+            </div>
+        </div>
+        -->
+
+    </div>
+</div>
+
+<!--   
+<script >
+    $(document).ready(function(){
+    $(".fancybox")
+    .attr('rel', 'gallery')
+    .fancybox({
+        padding : 0
+    });
+});
+
+</script> -->
+
+
+{% endblock %}

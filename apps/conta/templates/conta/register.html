@@ -1,0 +1,15 @@
+{% extends "wanga/base.html"%}
+{% block authuser%}
+
+{% endblock%}
+
+{% block content%}
+    {% if message %}
+    <p>{{message.message}}</p>
+    {% endif %}
+    <div class="container" layout vertical center>
+    
+        <h1>Register</h1>
+        <register-form></register-form>
+    </div>
+{% endblock %}

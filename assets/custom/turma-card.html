@@ -1,0 +1,27 @@
+<link rel="import" href="../components/polymer/polymer.html">
+<link rel="import" href="../components/paper-button/paper-button.html">
+
+<dom-module id="turma-card">
+    <template>
+        <paper-card heading="{{turma.name}}">
+            <div class="card-content"></div>
+            <div class="card-actions">
+                <paper-button on-tap="detalhe_turma">Detalhe da turma</paper-button>
+            </div>
+        </paper-card>
+    </template>
+    
+</dom-module>
+
+<script>
+    Polymer({
+        is:'turma-card',
+        
+        detalhe_turma:function(){
+            window.location.href="/turma/?id="+this.turma.id;  
+        },
+        properties:{
+            turma:Object
+        }
+    });
+</script>

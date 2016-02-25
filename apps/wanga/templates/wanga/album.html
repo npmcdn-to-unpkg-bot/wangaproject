@@ -1,0 +1,54 @@
+{% extends "wanga/base.html" %}
+
+{% load staticfiles %}
+
+    
+<script >
+    $(document).ready(function() {
+    $(".fancybox-button").fancybox({
+        prevEffect      : 'none',
+        nextEffect      : 'none',
+        closeBtn        : false,
+        helpers     : {
+            title   : { type : 'inside' },
+            buttons : {}
+        }
+    });
+});
+
+</script>
+
+{% block content%}
+
+<div class="container">
+    <div class="row">
+    
+            <div class="col-lg-3 col-md-4 col-xs-4 thumb">
+                <div class="thumbnail">
+                    <a class="fancybox" href= "{{MEDIA_URL}}galerias/{{fot.fol}}/{{picture}}"   title="cold forest (picturesbywalther)">
+                    <img  src= "{{MEDIA_URL}}galerias/"  alt="..."> </a>
+                </div>
+            </div>
+            {%endfor%}
+        {%endfor%}
+    {%else%}
+        <p>No image here</p>  
+    {%endif%}
+
+    </div>
+</div>
+
+   
+<script >
+    $(document).ready(function(){
+    $(".fancybox")
+    .attr('rel', 'gallery')
+    .fancybox({
+        padding : 0
+    });
+});
+
+</script>
+
+
+{% endblock %}

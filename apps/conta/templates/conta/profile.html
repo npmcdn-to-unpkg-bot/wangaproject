@@ -1,0 +1,13 @@
+{% extends "wanga/base.html" %}
+
+
+{% if user.is_authenticated%}
+
+	<h1>Hello {{user.username}}</h1>
+{% else%}
+	<p>No user yet</p>
+{% endif%}
+
+{% if message %}
+<p>{{message.message}}</p>
+{% endif %}

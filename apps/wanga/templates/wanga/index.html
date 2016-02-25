@@ -1,0 +1,109 @@
+{% extends "wanga/base.html"%}
+
+
+{% block content %} 
+	<style >
+	div.content{
+		width: 90%;
+		height: auto;
+		margin: auto;
+	}
+	div#present{
+		width: 70%;
+
+	}
+	div#complet{
+		width: 20%;
+	}
+	
+	paper-card.image{
+		width: 8em;
+	}
+	paper-card.white{
+		margin-top: 4em;
+	}
+
+	</style>
+	
+	
+	<div class="content">
+	
+		<div elevation="1" style="background-color:green;" class="layout horizontal">
+				
+				<div id="present">
+					<paper-material>
+						
+						
+						<paper-card heading="Bemvindo na Wanga Events Enterentainments" >
+							<div class="card-content">
+								<h3>Sua vida com muito mais curtição</h3>
+								<p>
+									A Wanga events Entertainment, é uma agencia de evento cuja missão é difundir e popularizar a dança na cidade de Porto Alegre.Com um quadro de profissionais altamente qualificados, trabalhamos na promoção de aulas, criação de cursos de dança, workshop e festas onde todos possam se divertir e aprender cada vez mais técnicas, fazer novas amizades e conhecer novas culturas. Apoiamos todos os talentos e ajudamos as pessoas a desenvolver suas habilidades oferecendo a eles diversos ferramentas e acompanhando todo seu processo de aprendizagem oferecendo ferramentas necessárias para seu crescimento. Assim podem se descobrir melhor e realizar seus sonhos com mais desejados.
+								</p>
+							</div>
+						</paper-card>
+						
+						<paper-card heading="Nossa ideia">
+							<div class="card-content">
+								<p>Na wanga acreditamos na capacidade e de cada um para atingir os seus objetivos. Para isso oferecemos aulas de danças de diferentes ritmos e níveis assim como um programa para quem quer seguir como profissional:</p>
+								<ul>
+									<li>
+										Dance in time: é um programa de aulas de dança voltado para pessoas que querem experimentar algum estilo de dança. O dance in time reúne estilos como: zouk, salsa, bachata, kizomba, maxixe, pagode, samba. Estas aulas tem uma carga horária definida e o aluno pode se inscrever em uma ou mais modalidades naquele período de tempo. 
+									</li>
+									<li>
+										Wanga Team Dancers: Estritamente voltado para pessoas que desejam ser nossos monitores, ou fazer parte da nossa equipe.
+									</li>
+								</ul> 
+							</div>
+						</paper-card>
+						
+						<paper-card heading="O Idealizador">
+							<div class="card-content">
+							<p>
+								A Wanga events Entertainment nasceu da ideia do Steeve Pierre Zephir administrador e professor de dança de salão em Porto Alegre. O objetivo principal é criar mais opções de entretenimento para quem vive na capital gaúcha. Mas também levar a dança para todas as pessoas que desejam aprender esta arte. Investir em jovens profissionais que querem seguir no ramo, ensinando as melhoras técnicas para o crescimento deles e torna o ensino da dança mais divertido, rentável e prazeroso.
+							</p>
+								<p> <strong><i>
+									Agencia de eventos <br>
+									Alimente sua vida com a magia da dança.
+								</i></strong></p>
+								</div>
+						</paper-card>
+					</paper-material>
+				</div>
+	
+				<div id="complet"> 
+					<paper-material elevation="0">
+						<img src="/static/image/wanga_logo.png" style="width:20em; height=auto; position:relative; ">
+					</paper-material>
+				</div>
+			
+	
+		</div>
+		
+		
+		<div>
+			
+			<paper-material  style="background-color:#00f;" >
+				<div style="background-color:green;"> <h2 style="position:relative; margin-left: 3em;"> -Novidades- </h2> </div>
+				
+				<div style=" margin-top: 1em; margin-bottom: 2em; position:relative;">
+					<paper-card style="width: 22em;">
+						<div class="card-content">
+							<div>
+								<img src="/static/image/wanga_logo.png" style="width: 20em; position:relative;">
+							</div>
+							
+							<div>
+								<h2>Noite +</h2>
+								<p>
+									Init is one of those programs that are absolutely essential to the operation of a Linux system, but that you still can mostly ignore.
+								</p>
+							</div>
+						</div>
+					</paper-card>
+				</div>
+			</paper-material>
+		</div>
+	</div>
+
+{% endblock%}

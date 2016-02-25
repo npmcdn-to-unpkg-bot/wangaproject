@@ -1,0 +1,60 @@
+<link rel="import" href="../components/polymer/polymer.html">
+<link rel="import" href="../components/iron-flex-layout/classes/iron-flex-layout.html">
+<link rel="import" href="../components/paper-menu-button/paper-menu-button.html">
+<link rel="import" href="../components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../components/paper-menu/paper-menu.html">
+<link rel="import" href="../components/paper-item/paper-item.html">
+<link rel="import" href="../components/iron-icons/iron-icons.html">
+<link rel="import" href="menu-card.html">
+
+<dom-module id="user-card">
+		<iron-ajax 
+                   id="UserAjax"
+                   method="get"
+                   contentType="application/json"
+                   url="/api/user/?json"
+                   auto
+                   last-response="{{user}}"
+                   handle-as="json"
+                   >
+        </iron-ajax>
+		
+	<template>
+		<template is="dom-if" if="{{user}}">
+		<menu-card horizontal-align="right" vertical-align="top" verticalOffset=2 >
+			<paper-icon-button style="margin-right:2em;" icon="account-circle" class="dropdown-trigger"></paper-icon-button>
+				<div class="dropdown-content">
+				<paper-menu >
+				    <paper-item>{{user.firstname}}</paper-item>
+				    <paper-item><a href="/conta/profile">Profile</a></paper-item>
+				    <paper-item><a href="/conta/logout">Sair</a></paper-item>
+				</paper-menu>
+				</div>
+			</menu-card>
+			</template>
+
+		
+			<menu-card horizontal-align="right" vertical-align="top" verticalOffset=2 >
+				<paper-icon-button style="margin-right:2em;" icon="account-circle" class="dropdown-trigger"></paper-icon-button>
+				<div class="dropdown-content">
+					<paper-menu style="margin-top:2em;">
+					    <paper-item><a href="/conta/login_page">Login</a></paper-item>
+					    <paper-item><a href="/conta/register">register</a></paper-item>
+					    
+					</paper-menu>
+				</div>
+
+			</menu-card>
+
+		
+
+
+	</template>
+</dom-module>
+
+<script >
+	Polymer({
+		is: 'user-card',
+
+	});
+</script>

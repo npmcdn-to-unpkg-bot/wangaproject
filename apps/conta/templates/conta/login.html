@@ -1,0 +1,42 @@
+{% extends "wanga/base.html"%}
+{% block authuser%}
+{% if message %}
+<p>{{message.message}}</p>
+{% endif %}
+{% endblock%}
+
+{% block content%}
+    <div class="container" layout vertical center>
+        
+        <div id="login">
+            <h1>Login</h1>
+                        
+            	<form is="iron-form" id="form" method="post" action="/conta/login/">
+            		{% csrf_token %}
+            		<paper-input name="name" label="Name" required></paper-input>
+
+  				</form>
+  				<paper-button raised onclick="submitHandler(event)">Submit</paper-button>
+            <login-form></login-form>
+            
+        </div>
+        
+    </div>
+    <script >
+    document.getElementById('form').addEventListener('iron-form-submit', display);
+    //document.getElementById('formPost').addEventListener('iron-form-submit', display);
+
+    function display(event) {
+      var output = document.getElementById('output');
+      output.innerHTML = JSON.stringify(event.detail);
+    }
+
+    function submitHandler() {
+    	document.getElementById('form').submit();
+      //Polymer.dom(event).localTarget.parentElement.submit();
+    }
+    function resetHandler(event) {
+      Polymer.dom(event).localTarget.parentElement.reset();
+    }
+    </script>
+{% endblock %}

@@ -1,0 +1,57 @@
+<link rel="import" href="../components/polymer/polymer.html">
+<link rel="import" href="turma-card.html">
+
+<dom-module id="curso-detail">
+    <template>
+        <iron-ajax 
+                   id="CursoAjax"
+                   method="get"
+                   contentType="application/json"
+                   auto
+                   last-response="{{curso}}"
+                   handle-as="json"
+                   >
+        </iron-ajax>
+        <paper-material>
+          <div>
+            <h1>detail do curso</h1>
+            <h3>{{curso.name}}</h3>
+            <p>{{curso.description}}</p>
+            <h1>Modalidade</h1>
+            <p>{{curso.modalidade.name}}</p>
+          </div>
+
+        
+          <template is="dom-repeat" items="{{curso.turmas}}" as="turma">
+              <turma-card turma="{{turma}}"></turma-card>
+          </template>
+        </paper-material>
+        
+    </template>
+</dom-module>
+
+<script>
+    Polymer({
+        is:'curso-detail',
+        ready:function(){
+          console.log(this.curso);
+          console.log(this.id);
+          this.$.CursoAjax.url = "/api/curso/"+this.cursoid;
+        },        
+        properties:{
+            cursoid:{
+                type:Number,
+                value:"",
+                notify:true,
+                reflectToAttribute: true
+            },
+            id:{
+                type:Number,
+                value:"",
+                notify:true,
+                reflectToAttribute: true
+            }
+        }
+        });
+    
+</script>

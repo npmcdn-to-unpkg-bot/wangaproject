@@ -1,0 +1,61 @@
+<link rel="import" href="../components/polymer/polymer.html">
+<link rel="import" href="../components/paper-button/paper-button.html">
+<link rel="import" href="turma-card.html">
+<!-- aqui deve se mostrar as turmas disponiveis pra um curso e checkar se o usuario esta participando de alguma indicar-->
+
+<dom-module id="curso-turma">
+    <template>
+        
+        <iron-ajax 
+                   id="turmaAjax"
+                   method="get"
+                   contentType="application/json"
+                   auto
+                   on-response="showTurmas"
+                   
+                   handle-as="json"
+                   >
+        </iron-ajax>
+        
+
+        <h1>Turmas</h1>
+        <template is="dom-repeat" items="{{turmas}}" as="turma">
+            <turma-card turma={{turma}}></turma-card>
+        </template>
+        
+        
+    </template>
+</dom-module>
+
+<script>
+    Polymer({
+        is:'curso-turma',
+        
+        ready:function(){
+          //console.log(this.cursoname);
+          //console.log(this.id);
+          console.log(this.turmas);
+          this.$.turmaAjax.url = "/api/curso/"+this.cursoid;
+        },
+        showTurmas:function(r){
+            console.log(r.detail.response);
+        },
+        
+        properties:{
+            cursoid:{
+                type:String,
+                value:"",
+                notify:true,
+                reflectToAttribute: true
+            },
+            id:{
+                type:Number,
+                value:"",
+                notify:true,
+                reflectToAttribute: true
+            }
+        }
+        
+        });
+    
+</script>

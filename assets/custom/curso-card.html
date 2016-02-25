@@ -1,0 +1,41 @@
+<link rel="import" href="../components/polymer/polymer.html">
+<link rel="import" href="../components/paper-button/paper-button.html">
+<link rel="import" href="../components/paper-card/paper-card.html">
+
+<dom-module id="curso-card">
+    <template>
+
+    <paper-card heading="{{curso.name}}" elevation="2" style="width:20em;">
+        
+        <div class="card-content">{{curso.description}}</div>
+        <div class="card-actions">
+            <paper-button on-tap="cursoDetail">More</paper-button>
+        </div>
+
+    </paper-card>
+
+    </template>
+
+</dom-module>
+
+<script>
+    Polymer({
+        is:'curso-card',
+        
+        cursoDetail: function(){
+            console.log(this.curso.id);
+            window.location.href = "/curso/?id="+this.curso.id;
+        },
+        
+        properties:{
+            pk:{
+                type: String,
+                value: "",
+                reflectToAttribute: true
+            },
+            user:Object,
+        }
+    
+    });
+
+</script>

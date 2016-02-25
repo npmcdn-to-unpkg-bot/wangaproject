@@ -1,0 +1,71 @@
+<link rel="import" href="../polymer/polymer.html" />
+<link rel="import" href="../paper-material/paper-material.html" />
+<link rel="import" href="../font-roboto/roboto.html" />
+
+<dom-module id="universal-footer">
+	<style>
+		:host {
+			background: var(--universal-footer-background-color, #F8BBD0);
+			color: var(--universal-footer-text-color, #C2185B);
+			display: block;
+			font-family: 'Roboto', sans-serif;
+			width: auto;
+			padding: var(--universal-footer-padding, 20px);
+		}
+		paper-material {
+			margin: 0px;
+		}
+		.copyright-center {
+			text-align: center;
+			font-size: 10px;
+			margin-top: 20px;
+		}
+		.multicol > ::content div {
+			display: flex;
+			flex-flow: row wrap;
+		}
+		
+		.multicol > ::content [col] {
+			flex: 1;
+			display: inline-block;
+			margin: 20px auto;
+			min-width: 200px;
+		}
+		
+		.multicol > ::content [row] {
+			display: block;
+		}
+		.multicol > ::content [left] {
+			text-align: left;
+		}
+		.multicol > ::content [right] {
+			text-align: right;
+		}
+		.multicol > ::content [center] {
+			text-align: center;
+		}
+		.multicol > ::content [title] {
+			font-weight: bold;
+			font-size: 20px;
+			margin-top: var(--universal-footer-col-title-margin-top, 20px);
+			color: var(--universal-footer-col-title-color, #C2185B);
+		}
+		.multicol > ::content [multicol] > [col] {
+			min-width: 10px;
+			margin: 0;
+			margin-right: 10px;
+			flex: auto;
+		}
+	</style>
+	<template>
+		<paper-material elevation="0" class="layout vertical">
+			<div class="flex multicol">
+				<content select="[multicol]"></content>
+			</div>
+			<div class="flex copyright-center">
+				<content select="[copyright-center]"></content>
+			</div>
+		</paper-material>
+	</template>
+</dom-module>
+<script src="universal-footer.js"></script>

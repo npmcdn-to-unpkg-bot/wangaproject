@@ -1,0 +1,82 @@
+{% extends "wanga/base.html"%}
+
+
+{% block content %} 
+	<style >
+	div.content{
+		width: 100%;
+		height: auto;;
+	}
+	div#present{
+		width: 65%;
+
+	}
+	div#complet{
+		width: 40%;
+	}
+
+	</style>
+	
+	
+ <div class="content">
+
+ 		
+
+	<paper-material elevation="1" style="background-color:green;" class="layout horizontal">
+		
+			<div id="present">
+				<h1>Bemvindo na Wanga Events Enterentainments</h1>
+				<h5><small>Sua vida com muito mais curtição</small></h5>
+				<p>
+					A Wanga events Entertainment, é uma agencia de evento cuja missão é difundir e popularizar a dança na cidade de Porto Alegre.Com um quadro de profissionais altamente qualificados, trabalhamos na promoção de aulas, criação de cursos de dança, workshop e festas onde todos possam se divertir e aprender cada vez mais técnicas, fazer novas amizades e conhecer novas culturas. Apoiamos todos os talentos e ajudamos as pessoas a desenvolver suas habilidades oferecendo a eles diversos ferramentas e acompanhando todo seu processo de aprendizagem oferecendo ferramentas necessárias para seu crescimento. Assim podem se descobrir melhor e realizar seus sonhos com mais desejados.
+				</p>
+
+				<h1> Nossa ideia </h1>
+				<p>
+					<p>Na wanga acreditamos na capacidade e de cada um para atingir os seus objetivos. Para isso oferecemos aulas de danças de diferentes ritmos e níveis assim como um programa para quem quer seguir como profissional:</p>
+					<ul>
+						<li>
+							Dance in time: é um programa de aulas de dança voltado para pessoas que querem experimentar algum estilo de dança. O dance in time reúne estilos como: zouk, salsa, bachata, kizomba, maxixe, pagode, samba. Estas aulas tem uma carga horária definida e o aluno pode se inscrever em uma ou mais modalidades naquele período de tempo. 
+						</li>
+						<li>
+							Wanga Team Dancers: Estritamente voltado para pessoas que desejam ser nossos monitores, ou fazer parte da nossa equipe.
+						</li>
+					</ul> 
+				</p>
+				<p>
+					<h3> O Idealizador </h3>
+					<p>
+						A Wanga events Entertainment nasceu da ideia do Steeve Pierre Zephir administrador e professor de dança de salão em Porto Alegre. O objetivo principal é criar mais opções de entretenimento para quem vive na capital gaúcha. Mas também levar a dança para todas as pessoas que desejam aprender esta arte. Investir em jovens profissionais que querem seguir no ramo, ensinando as melhoras técnicas para o crescimento deles e torna o ensino da dança mais divertido, rentável e prazeroso.
+					</p>
+						<p> <strong><i>
+							Agencia de eventos <br>
+							Alimente sua vida com a magia da dança.
+						</i></strong></p>
+				</p>
+			
+			</div>
+
+			<div id="complet"> 
+				
+				<img src="/static/image/wanga_logo.png" style="width:25em; height=auto; position:relative; ">
+			</div>
+		
+
+	</paper-material>
+	
+	
+	
+	<paper-material class="layout horizontal" style="background-color:#000;">
+		<div style="width:10em; height:5em; background-color:red;">
+			<p>Hello world</p>
+		</div>
+		<div style="width:10em; height:5em; background-color:red;">
+			<p>Hello world</p>
+		</div>
+		<div style="width:10em; height:5em; background-color:red;">
+			<p>Hello world</p>
+		</div>
+		
+	</paper-material>
+
+{% endblock%}

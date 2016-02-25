@@ -1,0 +1,14 @@
+{% extends "wanga/base.html" %}
+{% load staticfiles %}
+
+{% block content%}
+
+    <paper-material style="margin-top:2em; padding-top:1em;">
+        {% if user.is_authenticated%}
+    	   <curso-list id={{user.id}} ></curso-list>
+        {% else %}
+            <curso-list id=""></curso-list>
+        {% endif %}
+	</paper-material>
+
+{% endblock%}

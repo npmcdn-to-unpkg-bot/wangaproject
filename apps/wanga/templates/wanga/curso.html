@@ -1,0 +1,12 @@
+{% extends "wanga/base.html"%}
+
+{% block content%}
+
+	<paper-material>
+	    {% if user.is_authenticated%}
+	    {{user.username}}
+	    {% endif%}
+	    <curso-detail cursoid="{{id}}"></curso-detail>
+	</paper-material>
+    
+{% endblock %}
