@@ -11,21 +11,30 @@
     
     <!-- Components -->
     <link rel="import" href="{% static "components/iron-flex-layout/classes/iron-flex-layout.html" %}">
+	<link rel="import" href="{% static "components/iron-flex-layout/iron-flex-layout.html" %}">
     <link rel="import" href="{% static "components/iron-collapse/iron-collapse.html" %}">
     <link rel="import" href="{% static "components/paper-header-panel/paper-header-panel.html" %}">
     <link rel="import" href="{% static "components/paper-toolbar/paper-toolbar.html" %}">
     <link rel="import" href="{% static "components/paper-icon-button/paper-icon-button.html" %}">
     <link rel="import" href="{% static "components/iron-form/iron-form.html" %}">
-    <link rel="import" href="{% static "components/iron-icon/iron-icon.html" %}">
+    <link rel="import" href="{% static "components/iron-icons/iron-icons.html" %}">
     <link rel="import" href="{% static "components/iron-icons/hardware-icons.html" %}">
     <link rel="import" href="{% static "components/iron-image/iron-image.html" %}">
     <link rel="import" href="{% static "components/paper-material/paper-material.html" %}">
     <link rel="import" href="{% static "components/paper-card/paper-card.html" %}">
+	<link rel="import" href="{% static "components/paper-dialog/paper-dialog.html" %}">
+    <link rel="import" href="{% static "components/paper-item/paper-item.html" %}">
+    <link rel="import" href="{% static "components/paper-menu/paper-menu.html" %}">
+    <link rel="import" href="{% static "components/paper-button/paper-button.html" %}">
+    <link rel="import" href="{% static "components/paper-menu-button/paper-menu-button.html" %}">
     <link rel="import" href="{% static "components/google-youtube/google-youtube.html" %}">
-
-    <!-- Custom -->
+    <link rel="import" href="{% static "components/iron-media-query/iron-media-query.html" %}">
+    <link rel="import" href="{% static "components/paper-drawer-panel/paper-drawer-panel.html" %}">
     <link rel="import" href="{% static "components/paper-tabs/paper-tabs.html" %}">
     <link rel="import" href="{% static "components/font-roboto/roboto.html" %}">
+    
+    
+    <!-- Custom -->
     <link rel="import" href="{% static "custom/login-form.html" %}">
     <link rel="import" href="{% static "custom/register-form.html" %}">
     <link rel="import" href="{% static "custom/curso-list.html" %}">
@@ -35,8 +44,14 @@
     <link rel="import" href="{% static "custom/turma-card.html" %}">
     <link rel="import" href="{% static "custom/turma-detail.html" %}">
     <link rel="import" href="{% static "custom/base-header.html" %}">
+    <link rel="import" href="{% static "custom/header-mini.html" %}">
     <link rel="import" href="{% static "custom/footer-card.html" %}">
     <link rel="import" href="{% static "custom/you-video.html" %}">
+    <link rel="import" href="{% static "custom/image-card.html" %}">
+    <link rel="import" href="{% static "custom/new-drawer.html" %}">
+    <link rel="import" href="{% static "custom/search-box.html" %}">
+    <link rel="import" href="{% static "custom/estilo-list.html" %}">
+	<link rel="stylesheet" href="{% static "css/estilo.css" %}">
     
   </head>
   <style>
@@ -44,22 +59,96 @@
         position: relative;
         bottom: 0;
   }
+  paper-drawer-panel{
+        --paper-drawer-panel-right-drawer-container{
+             display: none;
+             
+        }
+        forceNarrow:true;
+  }
+  #divmenu{
+	  //position: relative;
+	  width: 80%;
+	  margin: auto;
+	  margin-top: 2em;
+	  background-color: blue;
+	  list-style-type: none;
+  }
+  #divmenu li a{
+	//position: relative;
+	  display: block;
+	  color: #000;
+	  padding: 8px 8px 8px 0px;
+	  text-decoration: none;
+	  background-color: green;
+	  margin-top:1em ;
+	  margin-left: -2em;
+  }
+  
+  
   </style>
 
-  <body class="fullbleed layout vertical">
-    <div class="fit ">
-      <paper-header-panel >
-          <base-header></base-header>
-          <you-video></you-video>
-          {% block content%} {% endblock%}
+  <body class="unresolved " unresolved>
+    
+  <!-- <paper-drawer-panel force-narrow>
+      <paper-header-panel drawer id="drawer">
+        <paper-toolbar>
+          <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
+          <span class="title">Wanga Inc</span>
+        </paper-toolbar>
+        <nav class="navmenu">
+			<ul id="divmenu">
+			  <li>Menu</li>
+              <li>  <a class="buti" href="/agencia"> Agencia  </a> </li>
+              <li>  <a class="buti" href="/estilos"> Estilos  </a> </li>
+			  <li>  <a class="buti" href="/cursos"> Cursos  </a> </li>
+			</ul>
+        </nav>
+      </paper-header-panel> -->
   
+    <paper-header-panel >
+            {%verbatim%}
+            <template is="dom-bind">
+               <iron-media-query query="(min-width: 700px)" query-matches="{{queryMatches}}"></iron-media-query>
+                    
+               <template is="dom-if" if="{{queryMatches}}">
+                   
+                   <base-header></base-header>
+                   
+               </template>
+     
+               <template is="dom-if" if="{{!queryMatches}}">
+				<!--
+                     <paper-toolbar>
+                    <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
+                    <a href="/" >
+      			<iron-image src="/static/image/wanga_logo_small.png" style="width:auto; heigth:50px; margin-top:.5em;"></iron-image>
+      		</a>
+                  </paper-toolbar>
+                   -->
+				<header-mini></header-mini>
+                </template>
+        </template>
+    
+       {%endverbatim%}
+          
+          {% block content%} {% endblock%}
+ 
           <footer-card class="foo">
               
           </footer-card>
-  
-      </paper-header-panel>
-      
-    </div>
+ 
+ 
+ 
+  </paper-header-panel>
+
+</paper-drawer-panel>
+   
+
+<script>
+    
+</script>      
+    
 
   </body>
 </html>

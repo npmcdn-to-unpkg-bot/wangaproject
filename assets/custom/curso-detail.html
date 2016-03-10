@@ -3,6 +3,16 @@
 
 <dom-module id="curso-detail">
     <template>
+        <style is="custom-style">
+            :host{
+                display: inline-block;
+            }
+            paper-material{
+                //width: 80%;
+                margin:auto;
+                margin-bottom: 2em;
+            }
+        </style>
         <iron-ajax 
                    id="CursoAjax"
                    method="get"
@@ -12,20 +22,28 @@
                    handle-as="json"
                    >
         </iron-ajax>
-        <paper-material>
-          <div>
-            <h1>detail do curso</h1>
-            <h3>{{curso.name}}</h3>
-            <p>{{curso.description}}</p>
-            <h1>Modalidade</h1>
-            <p>{{curso.modalidade.name}}</p>
-          </div>
-
         
+          <paper-card heading="{{curso.name}}" elevation="0">
+            <div class="card-content">
+                <p>{{curso.description}}</p>
+            </div>
+            <hr>
+            <div class="card-content">
+                <h2>Modalidade: <span>{{curso.modalidade.name}}</span></h2>
+                
+            </div>
+            
+            
+          </paper-card >
+
+      <!--  <div class="layout horizontal ">
           <template is="dom-repeat" items="{{curso.turmas}}" as="turma">
+            
               <turma-card turma="{{turma}}"></turma-card>
+            
           </template>
-        </paper-material>
+        </div> -->
+        
         
     </template>
 </dom-module>
@@ -36,7 +54,7 @@
         ready:function(){
           console.log(this.curso);
           console.log(this.id);
-          this.$.CursoAjax.url = "/api/curso/"+this.cursoid;
+          this.$.CursoAjax.url = "/api/cursos/"+this.id;
         },        
         properties:{
             cursoid:{
@@ -52,6 +70,6 @@
                 reflectToAttribute: true
             }
         }
-        });
+    });
     
 </script>

@@ -1,12 +1,20 @@
 {% extends "wanga/base.html"%}
 
 {% block content%}
-
-	<paper-material>
+        <style is="custom-style">
+            paper-material{
+                width: 80%;
+                margin: auto;
+            }
+        </style>
+	
 	    {% if user.is_authenticated%}
 	    {{user.username}}
 	    {% endif%}
-	    <curso-detail cursoid="{{id}}"></curso-detail>
-	</paper-material>
+        <paper-material elevation="0">
+            <curso-detail id="{{id}}"></curso-detail>
+            <curso-turma id="{{id}}"></curso-turma>
+        </paper-material>
+       
     
 {% endblock %}

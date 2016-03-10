@@ -1,16 +1,9 @@
 <link rel="import" href="../components/polymer/polymer.html">
-<link rel="import" href="../components/iron-flex-layout/classes/iron-flex-layout.html">
-<link rel="import" href="../components/paper-header-panel/paper-header-panel.html">
-<link rel="import" href="../components/paper-toolbar/paper-toolbar.html">
-<link rel="import" href="../components/paper-button/paper-button.html">
-<link rel="import" href="../components/paper-menu-button/paper-menu-button.html">
-<link rel="import" href="../components/paper-icon-button/paper-icon-button.html">
-<link rel="import" href="../components/paper-menu/paper-menu.html">
-<link rel="import" href="../components/paper-item/paper-item.html">
 <link rel="import" href="menu-card.html">
-<link rel="import" href="../components/iron-icons/iron-icons.html">
+
 <!-- custom elements -->
 	<link rel="import" href="user-card.html">
+	
 <!-- end custom-->
 
 
@@ -18,20 +11,17 @@
 	<template>
 
 	<style is="custom-style">
-		#pages{
-			display: block;
-			margin-left: 40em;
-		}
+		
 		ul{
 			list-style: none;
 			display: block;
-			margin: 0;
-			padding: 0;
+			margin-left: 25em;
+			//padding: 0;
 			
 		}
 		li {
 			display: inline;
-			margin-right: 3em;
+			margin-right: 2em;
 			float: left;
 		}
 		li a{
@@ -46,27 +36,40 @@
 		paper-toolbar{
 			--paper-toolbar-background:#000;
 		}
+	@media only screen and (max-width: 768px) {
+		ul{
+			margin-left: 20em;
+		}
+		li{
+			margin-right:.8em;
+		}
+		
+		iron-image{
+			//height: 30px;
+		}
+	}
 	</style>
 
-		<paper-toolbar class="tall justify">
-
+		<paper-toolbar class="medium-tall justify">
+			
       		<a href="/" >
-      			<iron-image src="/static/image/wanga_logo.png" style="width:auto; heigth:50px; margin-top:3em;"></iron-image>
+      			<iron-image src="/static/image/wanga_logo_small.png" style="width:auto; heigth:auto; margin-top:3em;"></iron-image>
       		</a>
       		
       			<span class="flex"></span>
-      			<div class="bottom" id="menu">
+      			<div class="bottom layout center-justified" id="menu">
 	      			<ul>
 	      				<li> <a href="/agencia"> Agencia </a> </li>
-	      				<li> <a href="/equipe"> Equipe </a> </li>
-	      				<li> <a href="/modals"> Estilos </a> </li>
+	      			<!--	<li> <a href="/equipe"> Equipe </a> </li> -->
+	      				<li> <a href="/estilos"> Estilos </a> </li>
 	      				<li> <a href="/cursos"> Cursos </a> </li>
+						<li> <a href="http://www.nuvibesystem.blogspot.com.br" target="blank"> Blog </a> </li>
 	      			</ul>
       			</div>
 
       			<span class="flex"></span>
 
-      		<user-card ></user-card>
+      		<user-card hidden="" ></user-card>
 
       		<menu-card horizontal-align="right" vertical-align="top" verticalOffset=2 >
 					<paper-icon-button  icon="info" class="dropdown-trigger"></paper-icon-button>
@@ -79,7 +82,7 @@
 			</menu-card>
 
     	</paper-toolbar>
-
+		
 	</template>
 
 </dom-module>

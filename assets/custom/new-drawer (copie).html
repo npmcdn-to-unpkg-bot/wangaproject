@@ -1,0 +1,114 @@
+<dom-module is="new-drawer">
+
+  <style>
+
+    :host {
+      position: absolute;
+      top: 0;
+      right: auto;
+      bottom: 0;
+      left: 0;
+      width: 256px;
+      overflow: hidden;
+      background-color: var(--x-drawer-background-color, #fff);
+      visibility: hidden;
+
+      -webkit-transform: translate3d(-100%, 0, 0);
+      transform: translate3d(-100%, 0, 0);
+
+      -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.42, 0, 0.33, 1.01);
+      transition: transform 0.4s cubic-bezier(0.42, 0, 0.33, 1.01);
+    }
+
+    :host([position=right]) {
+      right: 0;
+      left: auto;
+      -webkit-transform: translate3d(100%, 0, 0);
+      transform: translate3d(100%, 0, 0);
+    }
+
+    :host([position=top]) {
+      top: 0;
+      right: 0;
+      bottom: auto;
+      left: 0;
+      width: auto;
+      height: 256px;
+      -webkit-transform: translate3d(0, -100%, 0);
+      transform: translate3d(0, -100%, 0);
+    }
+
+    :host([position=bottom]) {
+      top: auto;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: auto;
+      height: 256px;
+      -webkit-transform: translate3d(0, 100%, 0);
+      transform: translate3d(0, 100%, 0);
+    }
+
+    :host([opened]),
+    :host([position][opened]) {
+      visibility: visible;
+
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+
+  </style>
+
+  <template>
+
+    <content></content>
+
+  </template>
+
+  <script>
+
+    Polymer({
+
+      is: 'new-drawer',
+
+      behaviors: [
+        Polymer.OverlayBehavior
+      ],
+
+      properties: {
+
+        opened: {
+          type: Boolean,
+          value: false,
+          notify: true,
+          reflectToAttribute: true,
+          observer: '_hasOpenedChanged'
+        },
+
+        position: {
+          reflectToAttribute: true
+        }
+
+      },
+
+      listeners: {
+        'transitionend': '_onTransitionEnd'
+      },
+
+      toggle: function() {
+        this.opened = !this.opened;
+      },
+
+      _hasOpenedChanged: function(opened, prev) {
+        if (prev !== undefined) {
+          this.style.visibility = 'visible';
+        }
+        this.shouldEnableScroll(true);
+      },
+
+      _onTransitionEnd: function(e) {
+        if (e.currentTarget == this) {
+          this.style.visibility = '';
+        }
+      }
+    });

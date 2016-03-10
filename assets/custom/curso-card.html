@@ -1,11 +1,16 @@
 <link rel="import" href="../components/polymer/polymer.html">
-<link rel="import" href="../components/paper-button/paper-button.html">
-<link rel="import" href="../components/paper-card/paper-card.html">
+
 
 <dom-module id="curso-card">
     <template>
+        <style is="custom-style">
+            paper-card{
+                width: 20em;
+                margin: 1em 1.5em 1.5em 1.5em;
+            }
+        </style>
 
-    <paper-card heading="{{curso.name}}" elevation="2" style="width:20em;">
+    <paper-card heading="{{curso.name}}" elevation="2" >
         
         <div class="card-content">{{curso.description}}</div>
         <div class="card-actions">

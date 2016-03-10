@@ -1,6 +1,70 @@
 {% extends "wanga/base.html"%}
 
-{% block content %} 
-	
-	<p>Agencia</p>
+{% block content %}
+    <style>
+        div.main{
+            background-color: green;
+            width: 90%;
+            
+        }
+        div#agencia{
+			
+            width: 50%;
+            margin-left: 3em;
+            background-color: blue;
+        }
+        div#servico{
+			
+            width: 30%;
+            margin: 0 0 0 5em;
+            background-color: red;
+        }
+    </style>
+	<paper-material elevation="0">
+		<image-card></image-card>
+        <div class="layout horizontal center-justified wrap main">
+            <div id="agencia">
+				<paper-card heading="Agencia de eventos" elevation="0">
+					<div class="card-content">
+						<h3> Alimente sua vida com a magia da dança.</h3>
+						<p>Na Wanga oferecemos atrações que vão tornar seus momentos inesquecíveis e memoráveis. Assim disponibilizamos para você uma equipe altamente qualificada e pronta para atender suas expectativas.</p>
+						<p> Planejamos junto com você o seu evento e garantimos a realização do seu projeto.</p>
+					</div>
+				</paper-card>
+			</div>
+			
+            <div id="servico">
+				<paper-card heading="Nossos serviços" style="position: relative; width: 100%" elevation="0">
+					<div class="card-content">
+						<ul>
+							<li>Aulas particulares</li>
+							<li>Coreografias
+								<ul>
+									<li>Aniversário 15 anos</li>
+									<li>Casamento </li>
+								</ul>
+							</li>
+							<li>Show</li>
+							<li>Oficinas de dança</li>
+							<li>Workshop</li>
+						</ul>
+					</div>
+				</paper-card>
+			</div>
+        </div>
+		
+		<div class="layout horizontal wrap">
+			<div>
+				<h4>Nossos Parceiros</h4>
+				<div></div>
+				
+				<p>Seja um parceiro da WANGA. Contate-nos</p>
+			
+			</div>
+			
+			<div>
+				<contato-card></contato-card>
+			</div>
+		</div>
+    </paper-material>
 {% endblock%}

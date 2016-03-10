@@ -6,8 +6,8 @@ def Index(request):
 
 def Cursos(request):
     return render(request,"wanga/cursos.html")
-def Modals(request):
-    return render(request,"wanga/modals.html")
+def Estilos(request):
+    return render(request,"wanga/estilos.html")
 
 def Eventos(request):
     return render(request,"wanga/eventos.html")

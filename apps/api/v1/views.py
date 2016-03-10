@@ -1,14 +1,15 @@
 from django.shortcuts import render, redirect,HttpResponse
 from django.http import Http404
+from django.shortcuts import get_object_or_404, Http404
 import json
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.views import APIView
+from rest_framework import viewsets
 from rest_framework.response import Response
 from apps.cursos.models import Modalidade,Curso,Turma
 from apps.conta.models import UserProfile
-from .serializers import (ModalidadeSerializer,CursoSerializer, TurmaSerialiser, TurmaDetailSerialiser,
-    CursoDetailSerializer,ProfileSerializer, UserAuth, UserSerializer)
+from .serializers import * 
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 from django.contrib.auth import authenticate, login, logout, get_user_model
@@ -29,24 +30,23 @@ class Modalidade_list(APIView):
         return Response(serializer.data)
 
 
-class CursosList(APIView):
-    """ Lista dos cursos disponiveis """
-    def get(self, request,format=None):
-        cursos = Curso.objects.all()
-        serializer = CursoSerializer(cursos, many=True)
-        return Response(serializer.data)
-
-class CursoDetail(APIView):
-    """ Detalhe de um unico curso """
+class CursosView(viewsets.ViewSet):
+    queryset = Curso.objects.all()
     def get_object(self, pk):
         try:
             curso = Curso.objects.get(pk=int(pk))
             return curso
         except Curso.DoesNotExist:
             raise Http404
+    
+    def list(self, request,format=None):
+        """ Lista dos cursos disponiveis """
+        cursos = Curso.objects.all()
+        serializer = CursoSerializer(cursos, many=True)
+        return Response(serializer.data)
 
-    def get(self, request,pk, format=None):
-        #name= request.GET.get('name','')
+    def retrieve(self, request,pk, format=None):
+        """ Detalhe de um unico curso """
         curso = self.get_object(pk)
         serializer = CursoDetailSerializer(curso)
         return Response(serializer.data)
@@ -80,26 +80,26 @@ class  ProfilDetail(APIView):
         else:
             return Response(serializer.data)
 
-class TurmasList(APIView):
+class TurmasView(viewsets.ViewSet):
+    queryset = Turma.objects.all()
     """ Lista dos cursos disponiveis """
-    def get(self, request, format=None):
+    def list(self, request, format=None):
         #name = request.GET.get('name','')
         turmas = Turma.objects.all()#.filter(modalidade__name=name)
         serializer = TurmaSerialiser(turmas, many=True)
         return Response(serializer.data)
 
-class TurmaDetail(APIView):
-    """ Detalhes de uma turma """
     def get_object(self, pk):
         try:
             turma = Turma.objects.get(pk=int(pk))
             return turma
         except Turma.DoesNotExist:
             raise Http404
-    
-    def get(self, request, pk,format=None):    
-        turma = self.get_object(pk)
-        serializer = TurmaDetailSerialiser(turma)
+    def retrieve(self, request, pk=None,format=None):
+        """ Detalhes de uma turma """
+        curso = get_object_or_404(Curso, pk=pk)
+        turmas = Turma.objects.all().filter(curso=curso)
+        serializer = TurmaSerialiser(turmas,many=True)
         return Response(serializer.data)
 
 

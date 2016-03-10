@@ -1,21 +1,55 @@
 <link rel="import" href="../components/polymer/polymer.html">
-<style type="text/css">
-	footer{
-		
-  		background: blue;
-		//width: 100%;
-		height: 20em;
-		
-		
-	}
-</style>
+<link rel="import" href="../components/iron-flex-layout/iron-flex-layout.html">
+
 <dom-module id="footer-card">
 	
 	<template>
 		
-			<footer >
-				<h3>Hi</h3>
-			</footer>
+	<style type="custom-style">
+		:host{
+			display: block;
+		}
+		.foo{
+			
+			background: blue;
+			//width: 100%;
+			//height: auto;
+		}
+		.foo{
+			
+			//display: inline;
+			
+			@apply(--layout-horizontal);
+			@apply(--layout-center-justified);
+			
+		}
+		.foo > div{
+			background-color: green;
+			margin: 1em 1.5em auto;
+			width: 15em;
+		}
+    </style>
+		
+		
+			
+				<div class="foo">
+					
+						<div >
+							<p><a href="">Testando1</a>  </p>
+							<hr>
+							<a>Hello</a>
+							<a>Hello</a>
+							<a>Hello</a>
+							<a href="">Hello</a>
+						</div>
+						
+						
+					
+				</div>
+				
+				<div>Hello</div>
+					
+			
 		
 
 	</template>

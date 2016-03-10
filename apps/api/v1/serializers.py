@@ -57,15 +57,15 @@ class TurmaSerialiser(serializers.ModelSerializer):
     #code
     detail = serializers.SerializerMethodField('detail_url')
     
-    curso = CursoSerializer()
+    #curso = CursoSerializer()
    
     def detail_url(self,Turma):
-        return "http://localhost:8000/api/turma/"+str(Turma.id)+"/"
+        return "/api/turmas/"+str(Turma.id)+"/"
     
     class Meta():
         #code
         model = Turma
-        fields = ("id","name","curso","inicio_data","inicio_hora", "fim_hora", "fim_data", "is_active","detail")
+        fields = ("id","name","inicio_data","inicio_hora", "fim_hora", "fim_data", "is_active","detail")
 
 
 class CursoDetailSerializer(serializers.ModelSerializer):

@@ -1,12 +1,37 @@
 <link rel="import" href="../components/polymer/polymer.html">
-<link rel="import" href="../components/paper-button/paper-button.html">
+
 
 <dom-module id="turma-card">
     <template>
+        <style is="custom-style">
+            paper-card{
+                position: relative;
+                width: 25em;
+                margin: 1em 1em 1em 1em;
+                
+            }
+        </style>
+        
         <paper-card heading="{{turma.name}}">
             <div class="card-content"></div>
             <div class="card-actions">
-                <paper-button on-tap="detalhe_turma">Detalhe da turma</paper-button>
+                <paper-button on-tap="toggle">Detalhe da turma</paper-button>
+                
+                
+                <paper-icon-button id="tt" icon="hardware:keyboard-arrow-up" on-click="toggle" style="float:right;">
+                </paper-icon-button>
+                <iron-collapse id="more" style="width: 100%;">
+                                        
+                    
+                    <paper-card style=" position: relative; width: 90%; margin: auto;">
+                       <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent enim ante, tempus eget volutpat ac, cursus ac ante.</p>
+                     <!--   <div class="card-actions">
+                            <paper-button on-tap="participar" id="actButton">{{button_message}}</paper-button>
+                        </div> -->
+                    </paper-card> 
+                       
+                </iron-collapse> 
+                      
             </div>
         </paper-card>
     </template>
@@ -20,8 +45,18 @@
         detalhe_turma:function(){
             window.location.href="/turma/?id="+this.turma.id;  
         },
+        toggle: function() {
+            
+            this.$.tt.icon = this.$.more.opened ? 'hardware:keyboard-arrow-up' : 'hardware:keyboard-arrow-down';
+            this.$.more.toggle();
+        },
         properties:{
-            turma:Object
+            turma:Object,
+            button_message:{
+                type:String,
+                value: "Participar",
+                notify: true
+            },
         }
     });
 </script>

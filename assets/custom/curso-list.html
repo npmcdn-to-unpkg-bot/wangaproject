@@ -1,6 +1,4 @@
 <link rel="import" href="../components/polymer/polymer.html">
-<link rel="import" href="../components/iron-ajax/iron-ajax.html">
-<link rel="import" href="../components/paper-material/paper-material.html">
 <link rel="import" href="../custom/curso-card.html">
 
 <dom-module id="curso-list">
@@ -15,12 +13,14 @@
                    handle-as="json"
                    >
         </iron-ajax>
+        <div class="layout horizontal wrap">
         <template is="dom-repeat" items="{{data}}" as="curso">
-           
+           <div>
             <curso-card curso={{curso}}></curso-card>
+           </div>
 
         </template>
-        
+        </div>
     </template>
     
 </dom-module>

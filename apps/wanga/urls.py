@@ -1,14 +1,14 @@
 from django.conf.urls import include, url,patterns
 from django.conf import settings
 from django.contrib.staticfiles import views
-from .views import Index,Videos,About,Contact, CursoDetail, Turma ,Cursos, Modals, Agencia, Equipe
+from .views import * 
 #from apps.account.views import Login
 
 urlpatterns = patterns('',
     #(r'^$',Home),
     (r'^$',Index),
     (r'^cursos$',Cursos),
-    (r'^modals$',Modals),
+    (r'^estilos$',Estilos),
     (r'^turma/$',Turma),
     #(r'^eventos$',Eventos),
     (r'^videos$',Videos),
