@@ -39,7 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework_swagger',
-    
+
     'rest_framework.authtoken',
     #'rest_auth',
     #'allauth',
@@ -53,7 +53,7 @@ INSTALLED_APPS = (
     'apps.cursos',
     #'fancybox',
     'apps.api',
-  
+
 )
 
 MIDDLEWARE_CLASSES = (
@@ -80,7 +80,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                #essencial no tratamento de media 
+                #essencial no tratamento de media
                 'django.core.context_processors.media',
             ],
         },
@@ -98,6 +98,11 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 100
 }
 
 REST_FRAMEWORK = {
@@ -136,5 +141,8 @@ STATICFILES_DIRS = (
 )
 
 
-
-
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'wangaevents@gmail.com'
+EMAIL_HOST_PASSWORD = 'bluewanga'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True

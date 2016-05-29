@@ -1,70 +1,130 @@
 {% extends "wanga/base.html"%}
+{% load staticfiles %}
 
 {% block content %}
     <style>
         div.main{
             background-color: green;
             width: 90%;
-            
+
         }
         div#agencia{
-			
+
             width: 50%;
             margin-left: 3em;
             background-color: blue;
         }
         div#servico{
-			
+
             width: 30%;
             margin: 0 0 0 5em;
             background-color: red;
         }
     </style>
-	<paper-material elevation="0">
-		<image-card></image-card>
-        <div class="layout horizontal center-justified wrap main">
-            <div id="agencia">
-				<paper-card heading="Agencia de eventos" elevation="0">
-					<div class="card-content">
-						<h3> Alimente sua vida com a magia da dança.</h3>
-						<p>Na Wanga oferecemos atrações que vão tornar seus momentos inesquecíveis e memoráveis. Assim disponibilizamos para você uma equipe altamente qualificada e pronta para atender suas expectativas.</p>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 col-lg-12">
+                <div class="media">
+                    <img src="{% static "image/image3.jpg" %}" class="img-thumbnail">
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="col-md-7">
+                    <div class="jumbotron">
+    				 	<div class="page-header">
+    						<h2>Agencia de eventos<small> <br> Alimente sua vida com a magia da dança.</small></h2>
+    					</div>
+
+                        <p>Na Wanga oferecemos atrações que vão tornar seus momentos inesquecíveis e memoráveis. Assim disponibilizamos para você uma equipe altamente qualificada e pronta para atender suas expectativas.</p>
 						<p> Planejamos junto com você o seu evento e garantimos a realização do seu projeto.</p>
-					</div>
-				</paper-card>
-			</div>
-			
-            <div id="servico">
-				<paper-card heading="Nossos serviços" style="position: relative; width: 100%" elevation="0">
-					<div class="card-content">
-						<ul>
-							<li>Aulas particulares</li>
-							<li>Coreografias
-								<ul>
-									<li>Aniversário 15 anos</li>
-									<li>Casamento </li>
-								</ul>
-							</li>
-							<li>Show</li>
-							<li>Oficinas de dança</li>
-							<li>Workshop</li>
-						</ul>
-					</div>
-				</paper-card>
-			</div>
-        </div>
-		
-		<div class="layout horizontal wrap">
-			<div>
-				<h4>Nossos Parceiros</h4>
+
+    				</div>
+                </div>
+                <div class="col-md-4">
+
+                    <div class="panel panel-primary">
+    				  	<div class="panel-heading">
+    				    	<h3 class="panel-title">Nossos serviços</h3>
+    				  	</div>
+    				  	<div class="panel-body">
+                            <ul>
+    							<li>Aulas particulares</li>
+    							<li>Coreografias
+    								<ul>
+    									<li>Aniversário 15 anos</li>
+    									<li>Casamento </li>
+    								</ul>
+    							</li>
+    							<li>Show</li>
+    							<li>Oficinas de dança</li>
+    							<li>Workshop</li>
+    						</ul>
+    					</div>
+    				</div>
+
+                    <div class="panel panel-primary">
+    				  	<div class="panel-heading">
+    				    	<h2 class="panel-title">Contato</h2>
+    				  	</div>
+    				  	<div class="panel-body">
+                            <form class="form-horizontal" action="/contato_mail/" method="post">
+                                <fieldset>
+									
+									<div class="form-group">
+                                        <label for="inputEmail" class="col-lg-2 control-label">Nome</label>
+                                        <div class="col-lg-10">
+                                            <input type="text" class="form-control" name="nome" placeholder="Nome completo">
+                                        </div>
+                                    </div>
+									
+									<div class="form-group">
+                                        <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+                                        <div class="col-lg-10">
+                                            <input type="text" class="form-control" name="email" placeholder="Email">
+                                        </div>
+                                    </div>
+									
+									
+                                    <div class="form-group">
+                                        <label for="inputEmail" class="col-lg-2 control-label">Assunto</label>
+                                        <div class="col-lg-10">
+                                            <input type="text" class="form-control" name="assunto" placeholder="Assunto">
+                                        </div>
+                                    </div>
+									
+                                    <div class="form-group">
+                                        <label for="textArea" class="col-lg-2 control-label">Mensagem</label>
+                                        <div class="col-lg-10">
+                                            <textarea class="form-control" rows="3" name="textmessage"></textarea>
+                                            <span class="help-block">Sua messagem.</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-lg-10 col-lg-offset-2">
+                                            <button type="reset" class="btn btn-default">Resetar</button>
+                                            <button type="submit" class="btn btn-primary">Enviar</button>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+    					</div>
+    				</div>
+
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <h4>Nossos Parceiros</h4>
 				<div></div>
-				
-				<p>Seja um parceiro da WANGA. Contate-nos</p>
-			
-			</div>
-			
-			<div>
-				<contato-card></contato-card>
-			</div>
-		</div>
-    </paper-material>
+
+				<p>Seja um parceiro da WANGA. <a href="/contato">Contate-nos</a> </p>
+            </div>
+
+        </div>
+    </div>
+
+
 {% endblock%}

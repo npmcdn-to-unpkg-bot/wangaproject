@@ -1,0 +1,35 @@
+body{
+  margin:0;
+}
+.toggle-left{ visibility: hidden; }
+#over::before{
+  content:url("../image/wanga_logo.png");
+}
+
+
+#logo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+#inuser{ visibility: hidden; }
+
+.navbar-inverse{
+    background-color: #fff;
+}
+
+@media screen and (max-width:680px){
+  #inNav{ display: none; }
+  #inuser{ visibility: visible; }
+  .sidebar{ 
+    
+    background-color: #fff;
+    
+  } 
+  .toggle-left{ visibility: visible; }
+  #over::before{
+      content:url("../image/wanga_logo_small.png");
+  }
+
+
+}

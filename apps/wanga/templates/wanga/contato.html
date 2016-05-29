@@ -1,0 +1,69 @@
+{% extends "wanga/base.html" %}
+
+{% load staticfiles %}
+
+{% block content%}
+
+    <div class="container-fluid">
+        <div class="row">
+            
+
+            <div class="col-md-8 col-md-offset-2">
+
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">Contato</h2>
+                    </div>
+                    <div class="panel-body">
+                        <form class="form-horizontal" action="/contato_mail/" method="post">
+                            {% csrf_token %}
+                            <fieldset>
+                                <div class="form-group">
+                                    <label for="inputPassword" class="col-lg-2 control-label">Nome</label>
+                                    <div class="col-lg-10">
+                                        <input type="text" class="form-control" name="nome" placeholder="Nome completo" required>
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+                                    <div class="col-lg-10">
+                                        <input type="email" class="form-control" name="email" placeholder="Email" required>
+                                    </div>
+                                </div>
+                                
+                                
+                                <div class="form-group">
+                                    <label for="inputEmail" class="col-lg-2 control-label">Assunto</label>
+                                    <div class="col-lg-10">
+                                        <input type="text" class="form-control" name="assunto" placeholder="Assunto" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="textArea" class="col-lg-2 control-label">Mensagem</label>
+                                    <div class="col-lg-10">
+                                        <textarea class="form-control" rows="3" name="textmessage" required></textarea>
+                                        <span class="help-block">Your message.</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-lg-10 col-lg-offset-2">
+                                        <button type="reset" class="btn btn-default">Reset</button>
+                                        <button type="submit" class="btn btn-primary">Enviar</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+{% endblock%}

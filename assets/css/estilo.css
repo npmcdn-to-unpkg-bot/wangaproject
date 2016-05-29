@@ -1,53 +1,12 @@
-p{
-    color: #263238;
-    margin: 0 1em 1em 2em;
-    font-size: 150%;
+html {
+   height: 100%;
 }
-h2{
-    //position:relative;
-    margin-left: 3em;
-    color: #263238;
-}
-h3{
-    margin-left: 3em;
-    color: #263238;
-}
-#novidade{
-        margin-top: 1em;
-        margin-bottom: 2em;
-        position:relative;
-        @apply(--layout-horizontal);
-        @apply(--layout-wrap);
-}
-#novidade paper-card{
-        width: 22em;
-        margin: 0em .5em 1em 2em;"
+
+.content{
+    min-height: 57.5rem;
+    width: 100%;
 }
 
 @media only screen and (max-width: 768px) {
-   p{
-    color: #263238;
-    margin: auto;
-    font-size: 90%;
-   }
-   #complet img{
-        width:17em;
-        height:auto;
-        position:relative;
-        margin-left: 1em;
-   }
-   #novidade{
-        margin-top: 1em;
-        margin-bottom: 2em;
-        position:relative;
-        @apply(--layout-vertical);
-        
-   }
    
-   #novidade paper-card{
-        background-color: transparent;
-        width: auto;
-        margin: 0;
-        margin-top: 1em;
-   }
 }

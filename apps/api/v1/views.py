@@ -9,7 +9,8 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 from apps.cursos.models import Modalidade,Curso,Turma
 from apps.conta.models import UserProfile
-from .serializers import * 
+from .serializers import *
+from rest_framework.pagination import *
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 from django.contrib.auth import authenticate, login, logout, get_user_model
@@ -21,6 +22,11 @@ from rest_framework.generics import RetrieveUpdateAPIView
 from django.conf import settings
 
 
+class StandardResultsSetPagination(PageNumberPagination):
+    page_size = 10
+    page_size_query_param = 'page_size'
+    #max_page_size = 20
+
 # Create your views here.
 class Modalidade_list(APIView):
     """ Listar as modalidade disponiveis """
@@ -30,31 +36,34 @@ class Modalidade_list(APIView):
         return Response(serializer.data)
 
 
-class CursosView(viewsets.ViewSet):
+class CursosView(viewsets.ModelViewSet):
+    pagination_class = StandardResultsSetPagination
     queryset = Curso.objects.all()
+    serializer_class = CursoSerializer
+
     def get_object(self, pk):
         try:
             curso = Curso.objects.get(pk=int(pk))
             return curso
         except Curso.DoesNotExist:
             raise Http404
-    
-    def list(self, request,format=None):
-        """ Lista dos cursos disponiveis """
+
+    """def list(self, request,format=None):
+
         cursos = Curso.objects.all()
         serializer = CursoSerializer(cursos, many=True)
-        return Response(serializer.data)
+        return Response(serializer.data) """
 
     def retrieve(self, request,pk, format=None):
         """ Detalhe de um unico curso """
         curso = self.get_object(pk)
         serializer = CursoDetailSerializer(curso)
         return Response(serializer.data)
-    
+
 class UserList(APIView):
     permission_classes = (IsAuthenticated, IsAdminUser)
     """ lista dos usuarios usuario """
-    def get(self, request , format=None):    
+    def get(self, request , format=None):
         users = User.objects.all()
         serializer =UserSerializer(users, many=True)
         return Response(serializer.data)
@@ -72,7 +81,7 @@ class  ProfilDetail(APIView):
             raise Http404
 
     def get(self, request, pk, format=None):
-        user = self.get_object(pk)    
+        user = self.get_object(pk)
         profil = UserProfile.objects.get(user=user)
         if profil:
             serializer =ProfileSerializer(profil)
@@ -118,4 +127,3 @@ class UserAvailable(APIView):
         if(user):
             serializer = UserSerializer(user)
             return Response(serializer.data);
-

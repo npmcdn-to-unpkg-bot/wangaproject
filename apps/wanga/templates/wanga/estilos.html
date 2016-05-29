@@ -1,18 +1,42 @@
 {% extends "wanga/base.html"%}
+{% load staticfiles %}
+
 
 {% block content%}
-    <style >
-        paper-material{
-            //width: 100%;
-            //margin-bottom: 2em;
-        }
-       
-    </style>
-   <paper-material elevation="0">
-        <image-card></image-card>
-        
-            <estilo-list >  </estilo-list>
-             
-   </paper-material>
-    
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="media">
+                <img src="{% static "image/image3.jpg" %}" class="img-thumbnail">
+            </div>
+        </div>
+
+        <div class="col-md-12" style="margin-top:2em;">
+
+            <div class="col-md-7">
+
+                <div class="well">
+                    <h2> O que é Ballet ?</h2>
+                    <p >
+                        Init is one of those programs that are absolutely essential to the operation of a Linux system, but that you still can mostly ignore.
+                        Init is one of those programs that are absolutely essential to the operation of a Linux system, but that you still can mostly ignore.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                <div class="panel panel-primary">
+
+				  	<div class="panel-body">
+						<div class="media">
+							<img src="{% static "image/image1.jpg" %}" class="img-thumbnail">
+						</div>
+					</div>
+				</div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
 {% endblock %}

@@ -13,27 +13,19 @@
 		
 		paper-toolbar{
 			--paper-toolbar-background:#000;
+			//position: fixed;
+			top: 0;
 		}
 	</style>
 		<paper-toolbar class="medium-tall">
 			
 			<a href="/" >
-      			<iron-image src="/static/image/wanga_logo_small.png" style="width:auto; heigth:auto; margin-top:3em;"></iron-image>
+      			<iron-image src="/static/image/wanga_logo_small.png" style="width:auto; heigth:auto; margin-top:3em; position: relative;"></iron-image>
       		</a>
-			<paper-icon-button icon="menu" on-click="drawer"></paper-icon-button>
+			
+			<paper-icon-button icon="menu" on-click="drawer" style="position: fixed; right: 0;"></paper-icon-button>
 		</paper-toolbar>
-		
-		<paper-dialog id="menu">
-				<h2>Header</h2>
-				<paper-dialog-scrollable>
-				  Lorem ipsum...
-				</paper-dialog-scrollable>
-				<div class="buttons">
-				  <paper-button dialog-dismiss>Cancel</paper-button>
-				  <paper-button dialog-confirm>Accept</paper-button>
-				</div>
-		</paper-dialog>
-		
+		<drawer-card id="menu"></drawer-card>		
 	</template>
 
 </dom-module>
@@ -43,7 +35,7 @@
 		is: 'header-mini',
 		drawer: function(){
 			
-			this.$.menu.open();
+			this.$.menu.toggle();
 			//this.$.ndrawer.opened;
 			console.log("Hello world");
 		},

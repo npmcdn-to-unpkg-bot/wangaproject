@@ -1,154 +1,203 @@
 {% load staticfiles %}
 <!DOCTYPE html>
-<html lang="en">
-  <head> 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="{% static "components/webcomponentsjs//webcomponents.js" %}"></script>
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title> {% block title %} Wanga Inc{% endblock %}</title>
-    
-    <!-- Components -->
-    <link rel="import" href="{% static "components/iron-flex-layout/classes/iron-flex-layout.html" %}">
-	<link rel="import" href="{% static "components/iron-flex-layout/iron-flex-layout.html" %}">
-    <link rel="import" href="{% static "components/iron-collapse/iron-collapse.html" %}">
-    <link rel="import" href="{% static "components/paper-header-panel/paper-header-panel.html" %}">
-    <link rel="import" href="{% static "components/paper-toolbar/paper-toolbar.html" %}">
-    <link rel="import" href="{% static "components/paper-icon-button/paper-icon-button.html" %}">
-    <link rel="import" href="{% static "components/iron-form/iron-form.html" %}">
-    <link rel="import" href="{% static "components/iron-icons/iron-icons.html" %}">
-    <link rel="import" href="{% static "components/iron-icons/hardware-icons.html" %}">
-    <link rel="import" href="{% static "components/iron-image/iron-image.html" %}">
-    <link rel="import" href="{% static "components/paper-material/paper-material.html" %}">
-    <link rel="import" href="{% static "components/paper-card/paper-card.html" %}">
-	<link rel="import" href="{% static "components/paper-dialog/paper-dialog.html" %}">
-    <link rel="import" href="{% static "components/paper-item/paper-item.html" %}">
-    <link rel="import" href="{% static "components/paper-menu/paper-menu.html" %}">
-    <link rel="import" href="{% static "components/paper-button/paper-button.html" %}">
-    <link rel="import" href="{% static "components/paper-menu-button/paper-menu-button.html" %}">
-    <link rel="import" href="{% static "components/google-youtube/google-youtube.html" %}">
-    <link rel="import" href="{% static "components/iron-media-query/iron-media-query.html" %}">
-    <link rel="import" href="{% static "components/paper-drawer-panel/paper-drawer-panel.html" %}">
-    <link rel="import" href="{% static "components/paper-tabs/paper-tabs.html" %}">
-    <link rel="import" href="{% static "components/font-roboto/roboto.html" %}">
-    
-    
-    <!-- Custom -->
-    <link rel="import" href="{% static "custom/login-form.html" %}">
-    <link rel="import" href="{% static "custom/register-form.html" %}">
-    <link rel="import" href="{% static "custom/curso-list.html" %}">
-    <link rel="import" href="{% static "custom/curso-card.html" %}">
-    <link rel="import" href="{% static "custom/curso-detail.html" %}">
-    <link rel="import" href="{% static "custom/curso-turma.html" %}">
-    <link rel="import" href="{% static "custom/turma-card.html" %}">
-    <link rel="import" href="{% static "custom/turma-detail.html" %}">
-    <link rel="import" href="{% static "custom/base-header.html" %}">
-    <link rel="import" href="{% static "custom/header-mini.html" %}">
-    <link rel="import" href="{% static "custom/footer-card.html" %}">
-    <link rel="import" href="{% static "custom/you-video.html" %}">
-    <link rel="import" href="{% static "custom/image-card.html" %}">
-    <link rel="import" href="{% static "custom/new-drawer.html" %}">
-    <link rel="import" href="{% static "custom/search-box.html" %}">
-    <link rel="import" href="{% static "custom/estilo-list.html" %}">
-	<link rel="stylesheet" href="{% static "css/estilo.css" %}">
-    
-  </head>
-  <style>
-  .foo{
-        position: relative;
-        bottom: 0;
-  }
-  paper-drawer-panel{
-        --paper-drawer-panel-right-drawer-container{
-             display: none;
-             
-        }
-        forceNarrow:true;
-  }
-  #divmenu{
-	  //position: relative;
-	  width: 80%;
-	  margin: auto;
-	  margin-top: 2em;
-	  background-color: blue;
-	  list-style-type: none;
-  }
-  #divmenu li a{
-	//position: relative;
-	  display: block;
-	  color: #000;
-	  padding: 8px 8px 8px 0px;
-	  text-decoration: none;
-	  background-color: green;
-	  margin-top:1em ;
-	  margin-left: -2em;
-  }
-  
-  
-  </style>
+<html lang="en" ng-app="wangaApp">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <body class="unresolved " unresolved>
-    
-  <!-- <paper-drawer-panel force-narrow>
-      <paper-header-panel drawer id="drawer">
-        <paper-toolbar>
-          <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
-          <span class="title">Wanga Inc</span>
-        </paper-toolbar>
-        <nav class="navmenu">
-			<ul id="divmenu">
-			  <li>Menu</li>
-              <li>  <a class="buti" href="/agencia"> Agencia  </a> </li>
-              <li>  <a class="buti" href="/estilos"> Estilos  </a> </li>
-			  <li>  <a class="buti" href="/cursos"> Cursos  </a> </li>
-			</ul>
+        <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+        <link rel="stylesheet" href="{% static "css/bootstrap-material-design.min.css" %}"> 
+        <link rel="stylesheet" href="{% static "css/ripples.min.css" %}">
+        <link rel="stylesheet" href="{% static "css/footer-distributed.css" %}">
+        <link rel="stylesheet" href="{% static "css/sidebar.css" %}">
+        <title> {% block title %} Wanga Inc{% endblock %}</title>
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+	   <link rel="stylesheet" href="{% static "css/menu.css" %}">
+	   <link rel="stylesheet" href="{% static "css/estilo.css" %}">
+
+       <script src="{% static "js/angular/angular.min.js" %}"></script>
+       <script src="{% static "js/angular/angular-resource.min.js" %}"></script>
+
+    </head>
+
+    <body>
+      <!--  <div id="over" style="position:relative; width:100%;">
+
+        </div> -->
+	
+        <nav class="navbar navbar-inverse" style="background-color: #000;">
+
+            <div class="container-fluid">
+
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle toggle-left" data-toggle="sidebar" data-target=".sidebar-left">
+                        <span class="sr-only"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+
+                <!--    <button class="dropdown navbar-toggle" >
+
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true" id="dropdownMenu1"> <span class="glyphicon glyphicon-user"></span><span class="caret"></span></a>
+                        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                            <li><a href="#">Profile</a></li>
+                            <li><a href="#">Meus Cursos</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">One more </a></li>
+                        </ul>
+                    </button> -->
+
+                    <div class=" pull-right" id="inuser">
+                        <a href="#" data-target="#" class="btn dropdown-toggle" data-toggle="dropdown" style="margin-right: 1em; background-color: #606060;"><span class="glyphicon glyphicon-user" style="margin-right: 1em;"></span><span class="caret"></span></a>
+
+
+                        <ul class="dropdown-menu " >
+                            <li><a href="#">Profile</a></li>
+                            <li><a href="#">Meus Cursos</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">One more </a></li>
+                        </ul>
+                    </div>
+
+                    <a href="/" class="navbar-brand"> 
+						
+						<span>Wanga</span>
+					</a>
+                </div>
+
+                <ul class="nav navbar-nav " id="inNav">
+                    <li><a href="/agencia">Agencia</a></li>
+                    <li ><a href="/cursos">Cursos </a></li>
+                    <li><a href="/estilos">Estilos</a></li>
+					<li><a href="http://wangadance.blogspot.com.br/2016/04/wanga-dance-2016_9.html">Blog</a></li>
+                   <!-- <li><a href="/equipe">Equipe</a></li> -->
+
+                </ul>
+
+                <ul class="nav navbar-nav pull-right " id="inNav">
+                    <li class="dropdown ">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> <span class="caret"></span></a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li><a href="/login">Login</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="/register">Register</a></li>
+                        <!--    <li><a href="#">Profile</a></li>
+                            <li><a href="#">Meus Cursos</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">One more </a></li> -->
+                        </ul>
+                    </li>
+
+
+                    <li class="dropdown ">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Info <span class="caret"></span></a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li><a href="/contato">Contato</a></li>
+
+                            <li role="separator" class="divider"></li>
+                            <li><a href="/about">About</a></li>
+                            <li role="separator" class="divider"></li>
+                            
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
         </nav>
-      </paper-header-panel> -->
-  
-    <paper-header-panel >
-            {%verbatim%}
-            <template is="dom-bind">
-               <iron-media-query query="(min-width: 700px)" query-matches="{{queryMatches}}"></iron-media-query>
-                    
-               <template is="dom-if" if="{{queryMatches}}">
-                   
-                   <base-header></base-header>
-                   
-               </template>
-     
-               <template is="dom-if" if="{{!queryMatches}}">
-				<!--
-                     <paper-toolbar>
-                    <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
-                    <a href="/" >
-      			<iron-image src="/static/image/wanga_logo_small.png" style="width:auto; heigth:50px; margin-top:.5em;"></iron-image>
-      		</a>
-                  </paper-toolbar>
-                   -->
-				<header-mini></header-mini>
-                </template>
-        </template>
-    
-       {%endverbatim%}
-          
-          {% block content%} {% endblock%}
- 
-          <footer-card class="foo">
-              
-          </footer-card>
- 
- 
- 
-  </paper-header-panel>
 
-</paper-drawer-panel>
-   
+        <div class="col-xs-7 col-sm-3 col-md-3 sidebar sidebar-left sidebar-animate sidebar-md-show">
 
-<script>
-    
-</script>      
-    
+                <ul class="nav navbar-nav navbar-stacked">
+                    <li><a href="/agencia">Agencia</a></li>
+                    <li ><a href="/cursos">Cursos <span class="sr-only">(current)</span></a></li>
+                    <li><a href="/estilos">Estilos</a></li>
+					<li><a href="http://wangadance.blogspot.com.br/2016/04/wanga-dance-2016_9.html">Blog</a></li>
+                    <li class="dropdown ">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Info <span class="caret"></span></a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li><a href="/contato">Contato</a></li>
 
-  </body>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="/about">About</a></li>
+                            <li role="separator" class="divider"></li>
+                            
+                        </ul>
+                    </li>
+
+                </ul>
+        </div>
+
+<div class="content">
+    {% block content%}
+
+    {% endblock %}
+</div>
+
+
+    <footer class="footer-distributed" style="position: relative; bottom: 0;">
+
+            <div class="footer-right">
+
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-google-plus"></i></a>
+                <a href="#"><i class="fa fa-instagram"></i></a>
+
+            </div>
+
+            <div class="footer-left">
+
+                <p class="footer-links">
+                    <a href="/">Wanga</a>
+                    ·
+                    <a href="/agencia">Agencia</a>
+                    ·
+                    <a href="/cursos">Cursos </a>
+                    ·
+                    <a href="/estilos">Estilos</a>
+
+                    ·
+                    <a href="/contato">Contato</a>
+                    ·
+                    <a href="/about">About</a>
+                </p>
+
+                <p>Wanga Inc &copy; 2016</p>
+            </div>
+
+        </footer>
+		
+
+    <script src="{% static "js/jquery.js" %}"></script>
+    <script src="{% static "js/bootstrap.min.js" %}"></script>
+    <script src="{% static "js/material.min.js" %}"></script>
+    <script src="{% static "js/sidebar.js" %}"></script>
+    <script src="{% static "js/app.js" %}"></script>
+
+    <!-- controllers -->
+    <script src="{% static "js/controllers/vagaController.js" %}"></script>
+
+
+    <!-- services -->
+    <script src="{% static "js/services/vagas.js" %}"></script>
+
+    <script >
+        $.material.init();
+    </script>
+
+    </body>
+
 </html>
