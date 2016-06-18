@@ -6,7 +6,7 @@ from localflavor.br.forms import BRPhoneNumberField, BRCPFField, BRZipCodeField,
 # Create your models here.
 class Adresse(models.Model):
 	endereco_atual = models.CharField(max_length=50,blank=True)
-	numero = forms.RegexField(regex=r'^\+?1?\d{2,4}$', error_message = ("wrong number") )
+	numero = forms.RegexField(regex=r'^\+?1?\d{2,4}$' )
 	complemento = models.CharField(max_length=20)
 	bairro = models.CharField(max_length=200,blank=True)
 	cep = BRZipCodeField()
@@ -16,7 +16,7 @@ class Adresse(models.Model):
 
 class UserProfile(models.Model):
 	user = models.OneToOneField(User)
-	avatar = models.ImageField(upload_to='profiles_image', blank=True, null=True)
+	#avatar = models.ImageField(upload_to='profiles_image', blank=True, null=True)
 	nascimento = models.DateField(auto_now_add= False, blank=True)
 	sexo = models.CharField(max_length=1)
 	#cidade = models.CharField(max_length=120)

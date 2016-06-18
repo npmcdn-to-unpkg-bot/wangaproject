@@ -20,10 +20,10 @@ from django.conf.urls.static import  static
 
 urlpatterns = [
     url(r'^',include('apps.wanga.urls')),
-    url(r'^api/',include('apps.api.v1.urls',namespace='v1')),
-    url(r'^',include('apps.gallerie.urls')),
+    url(r'^v1/',include('apps.api.v1.urls',namespace='v1')),
+    #url(r'^',include('apps.gallerie.urls')),
     #url(r'^',include('apps.cursos.api')),
-    url(r'^conta/',include('apps.conta.urls')),
+    #url(r'^conta/',include('apps.conta.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^docs/', include('rest_framework_swagger.urls')),
     #url(r'^rest-auth/', include('rest_auth.urls')),

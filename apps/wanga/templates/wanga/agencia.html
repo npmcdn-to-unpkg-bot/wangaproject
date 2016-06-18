@@ -2,6 +2,180 @@
 {% load staticfiles %}
 
 {% block content %}
+
+<div class="">
+
+    <div flex>
+
+        <md-card>
+
+	        <img ng-src="{% static "image/image1.jpg" %}" class="md-card-image" alt="">
+      	</md-card>
+
+    </div>
+
+    <div flex  layout="row">
+
+        <div flex="60">
+            <md-card>
+                <md-card-header>
+
+                    <md-card-header-text>
+                        <span class="md-title"> Agencia de eventos </span>
+                        <span class="md-subhead">Alimente sua vida com a magia da dança.</span>
+                    </md-card-header-text>
+                </md-card-header>
+
+                <md-card-content>
+
+                    <p>Na Wanga oferecemos atrações que vão tornar seus momentos inesquecíveis e memoráveis. Assim disponibilizamos para você uma equipe altamente qualificada e pronta para atender suas expectativas.</p>
+                    <p> Planejamos junto com você o seu evento e garantimos a realização do seu projeto.</p>
+                </md-card-content>
+
+            </md-card>
+
+            <md-card>
+                <md-card-header>
+
+                    <md-card-header-text>
+                        <span class="md-title"> Nossos serviços </span>
+                        <span class="md-subhead">:)</span>
+                    </md-card-header-text>
+                </md-card-header>
+
+                <md-card-content>
+
+                    <ul>
+                        <li>Aulas particulares</li>
+                        <li>Coreografias
+                            <ul>
+                                <li>Aniversário 15 anos</li>
+                                <li>Casamento </li>
+                            </ul>
+                        </li>
+                        <li>Show</li>
+                        <li>Oficinas de dança</li>
+                        <li>Workshop</li>
+                    </ul>
+
+                </md-card-content>
+
+            </md-card>
+
+        </div>
+
+    <!-- contanct form -->
+        <div flex="40">
+            <md-card>
+                <md-card-header>
+
+                    <md-card-header-text>
+                        <span class="md-title"> Contato </span>
+                        <span class="md-subhead"></span>
+                    </md-card-header-text>
+                </md-card-header>
+
+                <md-card-content>
+
+                    <form name="contactForm" flex action="/semthin/" method="post">
+                        {% csrf_token%}
+
+                        <md-input-container class="md-block">
+                            <label> Nome </label>
+                            <input name="nome" ng-model="nome" required md-maxlength="50" minlength="4">
+                            <div ng-messages="contactForm.nome.$error" ng-show="contactForm.nome.$dirty">
+                                <div ng-message="required">parte vazio !</div>
+                                <div ng-message="md-maxlength">nome muito longo !</div>
+                                <div ng-message="minlength">Muito curto !</div>
+                            </div>
+                        </md-input-container>
+
+                        <md-input-container class="md-block">
+                            <label> Sobrenome</label>
+                            <input name="sobrenome" ng-model="lastName" required md-maxlength="50" minlength="4">
+                            <div ng-messages="contactForm.sobrenome.$error" ng-show="contactForm.sobrenome.$dirty">
+                                <div ng-message="required">parte vazio !</div>
+                                <div ng-message="md-maxlength">nome muito longo !</div>
+                                <div ng-message="minlength">Muito curto !</div>
+                            </div>
+                        </md-input-container>
+
+                        <md-input-container class="md-block">
+                            <label> Assunto </label>
+                            <input name="assunto" ng-model="assunto" required md-maxlength="30" minlength="4">
+                            <div ng-messages="contactForm.assunto.$error" ng-show="contactForm.assunto.$dirty">
+                                <div ng-message="required">parte vazio !</div>
+                                <div ng-message="md-maxlength">nome muito longo !</div>
+                                <div ng-message="minlength">Muito curto !</div>
+                            </div>
+                        </md-input-container>
+
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Email</label>
+                            <input name="email" ng-model="email" required minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
+                            <div class="hint" ng-show="showHints">How can we reach you?</div>
+                            <div ng-messages="contactForm.email.$error" ng-hide="showHints">
+                                <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                                    Entrar um email valido.
+                                </div>
+                            </div>
+                        </md-input-container>
+
+
+                        <md-input-container class="md-block">
+                              <label>Mensagem</label>
+                              <textarea name="mes" ng-model="mensagem" required ></textarea>
+                              <div ng-messages="contactForm.mes.$error" ng-show="contactForm.mes.$dirty">
+                                  <div ng-message="required">Messagen vazia !</div>
+
+                              </div>
+                        </md-input-container>
+
+                        <md-button type="submit" class="md-primary"
+                               ng-class="{'md-raised md-hue-1': (contactForm.$dirty && contactForm.$valid) }"
+                               aria-label="Save Project">Enviar</md-button>
+
+                      </form>
+                 </md-card-content>
+             </md-card>
+
+         </div>
+
+     </div>
+
+     <div flex>
+         <md-card>
+            <md-card-header>
+
+                <md-card-header-text>
+                    <span class="md-title"> Nossos Parceiros </span>
+                    <span class="md-subhead">Seja um parceiro da WANGA. <a href="/contato">Contate-nos</a> </span>
+                </md-card-header-text>
+            </md-card-header>
+
+            <md-divider ></md-divider>
+
+            <md-card  md-theme-watch flex="30">
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">Card with image</span>
+                        <span class="md-subhead">Large</span>
+                    </md-card-title-text>
+                    <md-card-title-media>
+                        <div class="md-media-lg card-media"></div>
+                    </md-card-title-media>
+                </md-card-title>
+
+            </md-card>
+
+        </md-card>
+
+    </div>
+
+
+</div>
+
+<!--
     <style>
         div.main{
             background-color: green;
@@ -71,29 +245,29 @@
     				  	<div class="panel-body">
                             <form class="form-horizontal" action="/contato_mail/" method="post">
                                 <fieldset>
-									
+
 									<div class="form-group">
                                         <label for="inputEmail" class="col-lg-2 control-label">Nome</label>
                                         <div class="col-lg-10">
                                             <input type="text" class="form-control" name="nome" placeholder="Nome completo">
                                         </div>
                                     </div>
-									
+
 									<div class="form-group">
                                         <label for="inputEmail" class="col-lg-2 control-label">Email</label>
                                         <div class="col-lg-10">
                                             <input type="text" class="form-control" name="email" placeholder="Email">
                                         </div>
                                     </div>
-									
-									
+
+
                                     <div class="form-group">
                                         <label for="inputEmail" class="col-lg-2 control-label">Assunto</label>
                                         <div class="col-lg-10">
                                             <input type="text" class="form-control" name="assunto" placeholder="Assunto">
                                         </div>
                                     </div>
-									
+
                                     <div class="form-group">
                                         <label for="textArea" class="col-lg-2 control-label">Mensagem</label>
                                         <div class="col-lg-10">
@@ -125,6 +299,7 @@
 
         </div>
     </div>
+-->
 
 
 {% endblock%}

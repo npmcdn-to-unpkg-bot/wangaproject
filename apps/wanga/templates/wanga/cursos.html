@@ -3,9 +3,13 @@
 
 {% block content%}
 
-    <div class="container-fluid" ng-controller="VagaController">
+
+
+
+<!--
+    <div class="container-fluid" ng-controller="CursosController as CursosCtrl">
         <div class="row">
-            <div class="col-md-12" ng-repeat=" curso in cursos.results">
+            <div class="col-md-12" ng-repeat=" curso in CursosCtrl.cursos">
                 {% verbatim %}
                 <div class="col-md-6">
                     <div class="panel panel-success">
@@ -18,7 +22,7 @@
     					</div>
 
                         <div class="panel footer">
-                            <button type="button" name="button" class="btn btn-success" data-toggle="collapse" data-target="#more" style="margin-left:2rem"> Ver mais</button>
+                            <button type="button" name="button" class="btn btn-success btn-raised" data-toggle="collapse" data-target="#more" style="margin-left:2rem"> Ver mais</button>
                             <div class="collapse" id="more">
                                 <p style="margin-left:2em; margin-right:2em; padding-bottom:2em;" >
                                     {{curso.description}}
@@ -30,34 +34,25 @@
                 </div>
                 {% endverbatim %}
 
-            <!--    <div class="col-md-6">
-                    <div class="panel panel-success">
-    				  	<div class="panel-heading">
-    				    	<h1 class="panel-title">Panel primary</h1>
-    				  	</div>
-    				  	<div class="panel-body">
-    						<div class="media">
-    							<img src="{% static "image/image2.jpg" %}" class="img-thumbnail">
-    						</div>
-    					</div>
-                        <div class="panel footer">
-                            <button type="button" name="button" class="btn btn-success" data-toggle="collapse" data-target="#more1"> Ver mais</button>
-
-                                <p style="margin-left:2em; margin-right:2em; padding-bottom:2em;" class="collapse" id="more1">
-                                    For development I would not install any development packages to system python - You should use virtualenv. Also if you want to save time, first create the distribution egg via "easy_install bdist_egg". Then you can install the egg to your virtualenv (or system python if you prefer) without recompiling everything. Complete instuctions on how to install dependencies, getting pyside source, building and installing are
-                                </p>
-                        </div>
-    				</div>
-                </div> -->
-
                 </div>
-                {% verbatim %}
-                <ul class="pager">
-                  <li><a ng-href="{{cursos.previous}}">Previous</a></li>
-                  <li><a ng-href="{{cursos.next}}">Next</a></li>
-              </ul>
-              {% endverbatim %}
+                <div class="col-md-4 col-md-offset-5" >
+
+        		    <paging
+        			    class="small"
+        			    page="currentPage"
+        			    page-size="pageSize"
+        			    total="CursosCtrl.total"
+        			    show-prev-next="true"
+        			    show-first-last="true"
+        			    text-next-class="glyphicon glyphicon-chevron-right"
+        			    text-prev-class="glyphicon glyphicon-chevron-left"
+        			    text-first-class="glyphicon glyphicon-backward"
+        			    text-last-class="glyphicon glyphicon-forward"
+        			    paging-action="VagasCtrl.getData( page, pageSize)">
+        			</paging>
+
+		      </div>
             </div>
     </div>
-
+-->
 {% endblock%}

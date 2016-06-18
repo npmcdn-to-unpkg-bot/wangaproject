@@ -1,5 +1,5 @@
 from django.db import models
-from apps.conta.models import UserProfile
+#from apps.conta.models import UserProfile
 from django.contrib.auth.models import User
 # Create your models here.
 
@@ -19,7 +19,7 @@ class Curso(models.Model):
 	modalidade = models.ForeignKey(Modalidade)
 	inicio_data = models.DateField(auto_now_add= False, blank=True)
 	fim_data = models.DateField(auto_now_add= False, blank=True)
-	
+
 	def __str__(self):
 		return self.name
 
@@ -34,13 +34,13 @@ class Turma(models.Model):
 	fim_data = models.DateField(auto_now_add= False, blank=True)
 	is_active=models.BooleanField(default=False)
 	created = models.DateTimeField(auto_now_add=True)
-	
+
 	class Meta:
 		ordering = ['created']
 	def __str__(self):
 		return self.name
-	
-	
+
+
 
 class Membership(models.Model):
 	aluno = models.ForeignKey(User)
